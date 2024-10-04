@@ -38,6 +38,7 @@ class Product(db.Model):
     in_stock = db.Column(db.Integer, nullable=False)
     product_picture = db.Column(db.String(1000), nullable=False)
     flash_sale = db.Column(db.Boolean, default=False)
+    category = db.Column(db.String(50))
     date_added = db.Column(db.DateTime, default=datetime.utcnow)
 
     carts = db.relationship('Cart', backref=db.backref('product', lazy=True))

@@ -30,6 +30,11 @@ class ShopItemForm(FlaskForm):
     in_stock = IntegerField('In Stock' , validators=[DataRequired() , NumberRange(min=0)])
     product_picture =FileField('Product Picture' , validators=[FileRequired()])
     flash_sales = BooleanField('Flash Sales')
+    category = SelectField('category', choices=[('hp', 'Hp Laptops'), 
+                                                ('macbooks', 'Mac Books'), 
+                                                ('lenovo', 'Lenovo Laptops'), 
+                                                ('cameras', 'Cameras and Accessories') ],
+                                                validators= [DataRequired()])
 
     add_product = SubmitField('Add Product')
     update_product = SubmitField('Update Product')

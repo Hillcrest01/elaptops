@@ -189,6 +189,10 @@ def orders():
     orders = Order.query.filter_by(customer_link=current_user.id).all()
     return render_template('orders.html', orders=orders)
 
+@views.route('/hplaptops', methods = ['GET' , 'POST'])
+def hplaptops():
+    return render_template('hplaptops.html')
+
 @views.route('/search', methods=['GET', 'POST'])
 def search():
     if request.method == 'POST':
