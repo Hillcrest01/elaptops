@@ -26,6 +26,7 @@ def add_shop_item():
         previous_price = form.previous_price.data
         in_stock = form.in_stock.data
         flash_sales = form.flash_sales.data
+        category = form.category.data
 
         file = form.product_picture.data
         if file and file.filename:
@@ -40,6 +41,7 @@ def add_shop_item():
                 previous_price=previous_price,
                 in_stock=in_stock,
                 flash_sale=flash_sales,
+                category = category,
                 product_picture=file_path
             )
 
@@ -80,6 +82,7 @@ def update_items(item_id):
     form.current_price.render_kw = {'placeholder': item_to_update.current_price}
     form.in_stock.render_kw = {'placeholder': item_to_update.in_stock}
     form.flash_sales.render_kw = {'placeholder': item_to_update.flash_sale}
+    form.category = { 'placeholder': item_to_update.category }
     #the render_kw lines above are used to populate data to the fields to be updated with the current data.
 
     if form.validate_on_submit():
@@ -88,6 +91,7 @@ def update_items(item_id):
         previous_price = form.previous_price.data
         in_stock = form.in_stock.data
         flash_sale = form.flash_sales.data
+        category = form.category
 
         file = form.product_picture.data
         if file and file.filename:
@@ -103,7 +107,8 @@ def update_items(item_id):
                                                                 previous_price=previous_price,
                                                                 in_stock=in_stock,
                                                                 flash_sale=flash_sale,
-                                                                product_picture=file_path))
+                                                                product_picture=file_path,
+                                                                category = category))
 
                 db.session.commit()
                 flash(f'{product_name} updated Successfully')
