@@ -189,9 +189,25 @@ def orders():
     orders = Order.query.filter_by(customer_link=current_user.id).all()
     return render_template('orders.html', orders=orders)
 
-@views.route('/hplaptops', methods = ['GET' , 'POST'])
+@views.route('/hplaptops_page', methods = ['GET' , 'POST'])
 def hplaptops():
-    return render_template('hplaptops.html')
+    items = Product.query.filter_by(category = 'hp').all()
+    return render_template('hp.html', items = items)
+
+@views.route('/macbooks', methods = ['GET' , 'POST'])
+def macbooks():
+    items = Product.query.filter_by(category = 'macbooks').all()
+    return render_template('macbooks.html', items = items)
+
+@views.route('/lenovo', methods = ['GET' , 'POST'])
+def lenovo():
+    items = Product.query.filter_by(category = 'lenovo').all()
+    return render_template('lenovo.html', items = items)
+
+@views.route('/cameras', methods = ['GET' , 'POST'])
+def cameras():
+    items = Product.query.filter_by(category = 'cameras').all()
+    return render_template('cameras.html', items = items)
 
 @views.route('/search', methods=['GET', 'POST'])
 def search():
