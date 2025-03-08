@@ -48,7 +48,7 @@ Make sure you have the following installed on your local machine:
 
 - Python 3.x
 - Flask
-- SQLite (or another database system)
+- SQLite (Specifically)
 
 ### Installation Steps
 
