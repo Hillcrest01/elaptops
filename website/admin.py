@@ -52,7 +52,7 @@ def add_shop_item():
                 print('Product Added')
             except Exception as e:
                 print("product not added" , e)
-                flash('Product Not Added!!')
+                flash('Product Not Added, please try again')
         else:
             flash('No file uploaded!')
 
